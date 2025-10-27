@@ -16,6 +16,7 @@ class _MyAppBarState extends State<MyAppBar> {
 
     return AppBar(
       centerTitle: true,
+      elevation: 0.0,
       title: const Text('Todo-it'),
       backgroundColor: theme.colorScheme.primary,
       foregroundColor: Colors.white,

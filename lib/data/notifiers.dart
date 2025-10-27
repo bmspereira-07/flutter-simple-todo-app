@@ -6,3 +6,5 @@ import 'package:to_do_list/models/list.dart';
 ValueNotifier<List<TodoList>> todoListsNotifier = ValueNotifier<List<TodoList>>(
   [],
 );
+
+ValueNotifier<int> selectedBottomNavIndexNotifier = ValueNotifier<int>(0);
