@@ -5,9 +5,11 @@ import 'package:to_do_list/main.dart';
 
 void main() {
   group('Todo List App Tests', () {
-    testWidgets('App loads with initial todo list', (WidgetTester tester) async {
+    testWidgets('App loads with initial todo list', (
+      WidgetTester tester,
+    ) async {
       // Build our app and trigger a frame.
-      await tester.pumpWidget(const MyApp());
+      await tester.pumpWidget(MyApp());
 
       // Verify that the app title is displayed
       expect(find.text('To do list'), findsOneWidget);
@@ -16,8 +18,10 @@ void main() {
       expect(find.text('Todo List 1'), findsOneWidget);
     });
 
-    testWidgets('Can add new todo list via TextField', (WidgetTester tester) async {
-      await tester.pumpWidget(const MyApp());
+    testWidgets('Can add new todo list via TextField', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(MyApp());
 
       // Find the TextField and enter a new todo list name
       final textField = find.byType(TextField);
@@ -35,8 +39,10 @@ void main() {
       expect(find.text('My New List'), findsOneWidget);
     });
 
-    testWidgets('Shows dialog when todo list is tapped', (WidgetTester tester) async {
-      await tester.pumpWidget(const MyApp());
+    testWidgets('Shows dialog when todo list is tapped', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(MyApp());
 
       // Find and tap on the first todo list
       final listTile = find.text('Todo List 1');
@@ -51,8 +57,10 @@ void main() {
       expect(find.text('Close'), findsOneWidget);
     });
 
-    testWidgets('Can close dialog by tapping Close button', (WidgetTester tester) async {
-      await tester.pumpWidget(const MyApp());
+    testWidgets('Can close dialog by tapping Close button', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(MyApp());
 
       // Open the dialog
       await tester.tap(find.text('Todo List 1'));
@@ -69,8 +77,10 @@ void main() {
       expect(find.text('Todo List Details'), findsNothing);
     });
 
-    testWidgets('Empty todo list name is not added', (WidgetTester tester) async {
-      await tester.pumpWidget(const MyApp());
+    testWidgets('Empty todo list name is not added', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(MyApp());
 
       // Count initial todo lists
       final initialCount = find.byType(ListTile).evaluate().length;
@@ -86,12 +96,14 @@ void main() {
       expect(finalCount, equals(initialCount));
     });
 
-    testWidgets('Multiple todo lists can be displayed', (WidgetTester tester) async {
-      await tester.pumpWidget(const MyApp());
+    testWidgets('Multiple todo lists can be displayed', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(MyApp());
 
       // Add multiple todo lists
       final textField = find.byType(TextField);
-      
+
       await tester.enterText(textField, 'Shopping List');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
