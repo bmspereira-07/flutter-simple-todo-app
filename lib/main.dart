@@ -23,11 +23,13 @@ class MyApp extends StatelessWidget {
           title: 'Todo-it',
           theme: ThemeData(
             useMaterial3: true,
-            primaryColor: Colors.red,
-            primarySwatch: Colors.red,
-            scaffoldBackgroundColor: Colors.grey[300],
             iconTheme: const IconThemeData(color: Colors.white, size: 28.0),
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal,
+
+              primary: Colors.teal,
+              brightness: Brightness.light,
+            ),
           ),
           home: pages[selectedBotNavIndex],
         );

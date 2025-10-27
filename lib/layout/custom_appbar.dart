@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list/data/notifiers.dart';
 
 class MyAppBar extends AppBar {
   MyAppBar({super.key});
@@ -20,6 +21,31 @@ class _MyAppBarState extends State<MyAppBar> {
       title: const Text('Todo-it'),
       backgroundColor: theme.colorScheme.primary,
       foregroundColor: Colors.white,
+      actions: [
+        ValueListenableBuilder(
+          valueListenable: todoListsNotifier,
+          builder: (context, value, child) {
+            return IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: () {
+                resetTodoLists();
+                fillDefaultTodoLists();
+              },
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: todoListsNotifier,
+          builder: (context, value, child) {
+            return IconButton(
+              icon: const Icon(Icons.delete_forever),
+              onPressed: () {
+                resetTodoLists();
+              },
+            );
+          },
+        ),
+      ],
     );
   }
 }
