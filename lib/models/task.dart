@@ -1,6 +1,6 @@
 class Task {
-  final String description;
+  final String text;
   final bool isCompleted;
 
-  Task({required this.description, required this.isCompleted});
+  Task({required this.text, required this.isCompleted});
 }
